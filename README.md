@@ -6,7 +6,7 @@ I build machine learning models and full-stack applications focused on real-worl
 
 ---
 
-### 🚀 What I'm currently working on
+### 🚀 What I had done in the past :
 - Multi-label image classification (Meesho AI challenge)
 - Improving ML model performance and evaluation
 - Building scalable backend + full-stack projects
@@ -22,9 +22,10 @@ I build machine learning models and full-stack applications focused on real-worl
 ---
 
 ### 📫 How to reach me
-- Email: your-email@example.com  
-- GitHub: https://github.com/sunil22516  
-- LinkedIn: (add if you have)
+- Portfolio : 
+- Email: siuunil2008@gmail.com  
+- GitHub: https://github.com/sunil22516
+- LinkedIn: https://www.linkedin.com/in/sunil-kumar-769009261/
 
 ---
 
