@@ -6,14 +6,14 @@ I had built machine learning models and full-stack applications focused on real-
 
 ---
 
-### 🚀 What I had done in the past :
+### -> What I had done in the past :
 - Multi-label image classification Meesho
 - Improved ML model performance and evaluation
 - Build scalable backend + full-stack projects
 
 ---
 
-### 🛠️ Tools & Tech
+### -> Tools & Tech
 - Languages: Python, Java, TypeScript  
 - ML/DL: Scikit-learn, TensorFlow / PyTorch  
 - Web: React, Node.js, Express  
@@ -21,7 +21,7 @@ I had built machine learning models and full-stack applications focused on real-
 
 ---
 
-### 📫 How to reach me
+### -> How to reach me
 - Portfolio : 
 - Email: siuunil2008@gmail.com  
 - GitHub: https://github.com/sunil22516
