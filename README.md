@@ -2,7 +2,7 @@
 
 
 I'm Sunil, a CSE-AI undergraduate at IIIT Delhi.  
-I build machine learning models and full-stack applications focused on real-world problems.
+I had built machine learning models and full-stack applications focused on real-world problems .
 
 ---
 
