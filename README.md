@@ -1,8 +1,5 @@
 ## Heyaaa 👋
 
-<!--
-**sunil22516/sunil22516** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
 
 I'm Sunil, a CSAI undergraduate at IIIT Delhi.  
 I build machine learning models and full-stack applications focused on real-world problems.
