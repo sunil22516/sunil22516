@@ -2,7 +2,7 @@
 
 
 I'm Sunil, a CSE-AI undergraduate at IIIT Delhi.
-I’d say I’m consistent and self-driven, I stick with it and try to improve continuously. I’m currently focused on growing my skills and becoming someone whom i can be proud of.”
+I’d say I’m consistent and self-driven, I stick with it and try to improve continuously. I’m currently focused on growing my skills and becoming someone whom i can be proud of.
 
 ---
 
