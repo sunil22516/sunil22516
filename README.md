@@ -1,4 +1,4 @@
-## Heyaaa 👋
+## Konnichiwa👋  ;)
 
 
 I'm Sunil, a CSE-AI undergraduate at IIIT Delhi.
