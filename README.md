@@ -6,7 +6,7 @@ I’d say I’m consistent and self-driven, I stick with it and try to improve c
 
 ---
 
-### -> What I had done in the past :
+### -> What I have worked on in the past :
 - Multi-label image classification Meesho
 - Improved and optimizing ML model performance and evaluation
 - And Many More ......
