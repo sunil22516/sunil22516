@@ -6,14 +6,14 @@ I’d say I’m consistent and self-driven, I stick with it and try to improve c
 
 ---
 
-### -> What I have worked on in the past :
+### -> What i have worked on :
 - Multi-label image classification Meesho
 - Improved and optimizing ML model performance and evaluation
 - And Many More ......
 
 ---
 
-### -> Tools & Tech
+### -> Tools & Tech 
 - Languages: Python, Java, TypeScript  
 - ML/DL: Scikit-learn, TensorFlow / PyTorch  
 - Web: React, Node.js, Express  
