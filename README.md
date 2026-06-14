@@ -13,8 +13,7 @@ I’d say I’m consistent and self-driven, I stick with it and try to improve c
 
 ---
 
-### -> Currently learning - Cloud Computing <img width="20" height="20" alt="image" src="https://github.com/user-attachments/assets/4b0ab869-d7c6-4bbb-8345-6e6ed1ee6653" />
-
+### -> Currently learning - Cloud Computing    "  <img width="30" height="30" alt="image" src="https://github.com/user-attachments/assets/4b0ab869-d7c6-4bbb-8345-6e6ed1ee6653" align="center" /> "
 ---
 
 ### -> Tools & Tech 
