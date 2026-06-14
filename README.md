@@ -9,6 +9,7 @@ I’d say I’m consistent and self-driven, I stick with it and try to improve c
 ### -> What i have worked on :
 - Multi-label image classification Meesho
 - wifi fingerprinting and navigation system
+- RecomSystems Neural MF
 - And Many More ......
 
 ---
