@@ -1,4 +1,4 @@
-## Konnichiwa👋  ;)
+<img width="100" height="100" alt="image" src="https://github.com/user-attachments/assets/4b0ab869-d7c6-4bbb-8345-6e6ed1ee6653" />## Konnichiwa👋  ;)
 
 
 I'm Sunil, a CSE-AI undergraduate at IIIT Delhi.
@@ -13,7 +13,7 @@ I’d say I’m consistent and self-driven, I stick with it and try to improve c
 
 ---
 
-### -> Currently learning - Cloud Computing
+### -> Currently learning - Cloud Computing  ☁︎
 
 ---
 
