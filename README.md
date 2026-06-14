@@ -13,7 +13,7 @@ I’d say I’m consistent and self-driven, I stick with it and try to improve c
 
 ---
 
-### -> Currently learning - Cloud Computing  ☁︎
+### -> Currently learning - Cloud Computing ☁️👨‍💻
 
 ---
 
