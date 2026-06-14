@@ -8,8 +8,12 @@ I’d say I’m consistent and self-driven, I stick with it and try to improve c
 
 ### -> What i have worked on :
 - Multi-label image classification Meesho
-- Improved and optimizing ML model performance and evaluation
+- wifi fingerprinting and navigation system
 - And Many More ......
+
+---
+
+### -> Currently learning - Cloud Computing
 
 ---
 
