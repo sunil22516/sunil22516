@@ -18,10 +18,12 @@ I’d say I’m consistent and self-driven, I stick with it and try to improve c
 ---
 
 ### -> Tools & Tech 
-- Languages: Python, Java, TypeScript  
-- ML/DL: Scikit-learn, TensorFlow / PyTorch  
-- Web: React, Node.js, Express  
-- Tools: Git, GitHub, VS Code  
+- Languages: Python, Java, C, Swift
+- ML/Data: PyTorch, TensorFlow, Scikit, OpenCV , PDR, CF
+- Backend: Java, Spring Boot, REST APIs, Maven, AWS/Azure
+- Databases: MongoDB, PostgreSQL
+- Frontend: React.js, Next.js, Tailwind CSS ,Kubernetes
+- Tools: Git, Docker, Linux, PDB , Windsurf , PowerBI , Postman , GitLab CI
 
 ---
 
