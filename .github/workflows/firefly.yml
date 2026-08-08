@@ -39,11 +39,16 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+          # dist/ already exists on disk from the step above (it's untracked,
+          # never committed to main) -- stash it somewhere safe before we
+          # wipe the working tree for the orphan branch.
+          mkdir -p /tmp/firefly-dist
+          cp dist/*.svg /tmp/firefly-dist/
+
           git checkout --orphan output
           git rm -rf . > /dev/null
-          git checkout main -- dist
-          mv dist/* .
-          rmdir dist
+
+          cp /tmp/firefly-dist/*.svg .
 
           git add firefly-dark.svg firefly-light.svg
           git commit -m "Update firefly contribution graph" --allow-empty
