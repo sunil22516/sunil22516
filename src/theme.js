@@ -1,0 +1,26 @@
+export const themes = {
+  dark: {
+    name: "dark",
+    skyTop: "#1b1030",
+    skyBottom: "#0d1b2a",
+    star: "#cfd6ff",
+    cellEmpty: "#22273a",
+    cellLevels: ["#22273a", "#33513f", "#3f7a4f", "#6ba85a", "#e8c15a"],
+    cellLit: "#ffd27a",
+    fireflyCore: ["#ffe29a", "#f4f0a0", "#ffd27a"],
+    fireflyGlow: "#ffcf6e",
+    caption: "#8891b5",
+  },
+  light: {
+    name: "light",
+    skyTop: "#f3e6ef",
+    skyBottom: "#ffe3cf",
+    star: "#ffffff",
+    cellEmpty: "#e7dde6",
+    cellLevels: ["#e7dde6", "#c9dfb8", "#9fc98a", "#6fae63", "#e0a63e"],
+    cellLit: "#ffb347",
+    fireflyCore: ["#ffb347", "#f0932b", "#ffcc70"],
+    fireflyGlow: "#ff9d3d",
+    caption: "#7a6f7d",
+  },
+};

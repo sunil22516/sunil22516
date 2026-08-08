@@ -1,0 +1,50 @@
+name: Generate firefly contribution graph
+
+on:
+  schedule:
+    - cron: "0 5 * * *" # once a day at 05:00 UTC -- adjust to taste
+  workflow_dispatch: {} # lets you trigger it manually from the Actions tab
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - ".github/workflows/firefly.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate SVGs
+        env:
+          # The default GITHUB_TOKEN can read public contribution data.
+          # If you want PRIVATE contributions included, create a Personal
+          # Access Token with the `read:user` scope, save it as a repo
+          # secret named GH_TOKEN, and it'll be picked up automatically.
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node src/generate.js --user "${{ github.repository_owner }}" --out dist
+
+      - name: Publish to output branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git checkout --orphan output
+          git rm -rf . > /dev/null
+          git checkout main -- dist
+          mv dist/* .
+          rmdir dist
+
+          git add firefly-dark.svg firefly-light.svg
+          git commit -m "Update firefly contribution graph" --allow-empty
+          git push origin output --force
