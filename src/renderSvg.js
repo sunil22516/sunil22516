@@ -211,7 +211,7 @@ function renderFireworks(layout, sim, theme, totalDur) {
         }
       }
 
-      out += `<circle r="1.5" fill="${sparkColor}">` +
+      out += `<circle r="3" fill="${sparkColor}">` +
         `<animate attributeName="cx" values="${sparkXs.map(v => round(v)).join(";")}" keyTimes="${keyTimes}" dur="${totalDur}s" repeatCount="indefinite"/>` +
         `<animate attributeName="cy" values="${sparkYs.map(v => round(v)).join(";")}" keyTimes="${keyTimes}" dur="${totalDur}s" repeatCount="indefinite"/>` +
         `<animate attributeName="opacity" values="${sparkOps.map(v => round(v, 2)).join(";")}" keyTimes="${keyTimes}" dur="${totalDur}s" repeatCount="indefinite"/>` +

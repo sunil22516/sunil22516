@@ -52,7 +52,7 @@ async function main() {
   const totalContributions = cells.reduce((sum, c) => sum + c.count, 0);
 
   const layout = computeLayout(cells, weekCount);
-  const sim = runSimulation(layout, { fireworkCount: 52, steps: 200, seed });
+  const sim = runSimulation(layout, { fireworkCount: 52, steps: 150, seed });
   const config = { stepDuration: 0.16, tails: true, caption: true, seed };
 
   await mkdir(args.out, { recursive: true });

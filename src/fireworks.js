@@ -21,7 +21,7 @@ export function seedFromString(str) {
 export function runSimulation(layout, opts = {}) {
   const {
     fireworkCount = 52, // number of fireworks
-    steps = 200,
+    steps = 150,
     seed = 1,
   } = opts;
 
@@ -61,7 +61,7 @@ export function runSimulation(layout, opts = {}) {
 
     const colorIndex = Math.floor(rand() * 100);
 
-    const sparkCount = 40 + Math.floor(rand() * 32); // 400% intensity
+    const sparkCount = 30;
     const sparks = [];
     for (let sp = 0; sp < sparkCount; sp++) {
       const angle = rand() * Math.PI * 2;

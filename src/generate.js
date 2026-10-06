@@ -7,7 +7,7 @@ import { renderSvg } from "./renderSvg.js";
 import { themes } from "./theme.js";
 
 function parseArgs(argv) {
-  const args = { out: "dist", particles: 52, steps: 200, stepDuration: 0.16, tails: true, caption: true };
+  const args = { out: "dist", particles: 52, steps: 150, stepDuration: 0.16, tails: true, caption: true };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (!a.startsWith("--")) continue;
