@@ -1,8 +1,12 @@
 ## Konnichiwa👋  ;)
-
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sunil22516/sunil22516/output/firework-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sunil22516/sunil22516/output/firework-light.svg" />
+  <img src="https://raw.githubusercontent.com/sunil22516/sunil22516/output/firework-dark.svg" alt="my contribution graph, visited by fireworks" />
+</picture>
 
 I'm Sunil, a CSE-AI undergraduate at IIIT Delhi.
-I’d say I’m consistent and self-driven, I stick with it and try to improve continuously. I’m currently focused on growing my skills and becoming someone whom i can be proud of.
+I’d say I’m consistent and i do enjoy my work, I stick with it nd try out ways to improve it continuously.I’m currently focused on growing my skills and becoming someone whom i can be proud of.
 
 ---
 
@@ -34,10 +38,3 @@ I’d say I’m consistent and self-driven, I stick with it and try to improve c
 - Leetcode : https://leetcode.com/u/sunil22516/
 - LinkedIn: https://www.linkedin.com/in/sunil-kumar-769009261/
 
-
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sunil22516/sunil22516/output/firework-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sunil22516/sunil22516/output/firework-light.svg" />
-  <img src="https://raw.githubusercontent.com/sunil22516/sunil22516/output/firework-dark.svg" alt="my contribution graph, visited by fireworks" />
-</picture>
