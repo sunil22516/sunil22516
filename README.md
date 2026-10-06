@@ -37,7 +37,7 @@ I’d say I’m consistent and self-driven, I stick with it and try to improve c
 
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sunil22516/sunil22516/output/firefly-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sunil22516/sunil22516/output/firefly-light.svg" />
-  <img src="https://raw.githubusercontent.com/sunil22516/sunil22516/output/firefly-dark.svg" alt="my contribution graph, visited by fireflies" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/sunil22516/sunil22516/output/firework-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sunil22516/sunil22516/output/firework-light.svg" />
+  <img src="https://raw.githubusercontent.com/sunil22516/sunil22516/output/firework-dark.svg" alt="my contribution graph, visited by fireworks" />
 </picture>

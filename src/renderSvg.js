@@ -94,27 +94,56 @@ function renderGrid(layout, theme, sim, totalDur, steps) {
       return;
     }
 
-    const pulses = events.map((ev) => ({
-      startFrac: ev.startStep / steps,
-      peakFrac: (ev.startStep + (ev.endStep - ev.startStep) * 0.5) / steps,
-      endFrac: ev.endStep / steps,
-    }));
+    const sortedEvents = [...events].sort((a, b) => a.startStep - b.startStep);
 
-    const fillAnim = buildPulses(steps, pulses, base, theme.cellLit);
+    let fillKeyTimes = [0];
+    let fillValues = [base];
+
+    for (const ev of sortedEvents) {
+      const colorFamily = theme.fireworkColors[ev.colorIndex % theme.fireworkColors.length];
+      const evColor = colorFamily[0];
+      const tStart = ev.startStep / steps;
+
+      if (tStart > fillKeyTimes[fillKeyTimes.length - 1] + 0.001) {
+        fillKeyTimes.push(round(tStart - 0.001, 4));
+        fillValues.push(fillValues[fillValues.length - 1]);
+      }
+      
+      fillKeyTimes.push(round(tStart + 0.02, 4));
+      fillValues.push(evColor);
+    }
+    
+    fillKeyTimes.push(1);
+    fillValues.push(fillValues[fillValues.length - 1]);
+
+    const fillAnim = {
+      keyTimes: fillKeyTimes.join(";"),
+      values: fillValues.join(";")
+    };
+
     rects.push(
       `<rect x="${round(cell.px)}" y="${round(cell.py)}" width="${CELL_SIZE}" height="${CELL_SIZE}" rx="2.5" fill="${base}">` +
         `<animate attributeName="fill" values="${fillAnim.values}" keyTimes="${fillAnim.keyTimes}" dur="${totalDur}s" repeatCount="indefinite"/>` +
         `</rect>`
     );
 
-    const rAnim = buildPulses(steps, pulses, 0, 9, (v) => round(v, 2));
-    const opAnim = buildPulses(steps, pulses, 0, 0.45, (v) => round(v, 2));
-    halos.push(
-      `<circle cx="${round(cell.cx)}" cy="${round(cell.cy)}" r="0" fill="none" stroke="${theme.cellLit}" stroke-width="1">` +
-        `<animate attributeName="r" values="${rAnim.values}" keyTimes="${rAnim.keyTimes}" dur="${totalDur}s" repeatCount="indefinite"/>` +
-        `<animate attributeName="opacity" values="${opAnim.values}" keyTimes="${opAnim.keyTimes}" dur="${totalDur}s" repeatCount="indefinite"/>` +
-        `</circle>`
-    );
+    events.forEach(ev => {
+      const colorFamily = theme.fireworkColors[ev.colorIndex % theme.fireworkColors.length];
+      const evColor = colorFamily[0];
+      const startFrac = ev.startStep / steps;
+      const peakFrac = (ev.startStep + (ev.endStep - ev.startStep) * 0.5) / steps;
+      const endFrac = ev.endStep / steps;
+      
+      const rAnim = buildPulses(steps, [{startFrac, peakFrac, endFrac}], 0, 9, (v) => round(v, 2));
+      const opAnim = buildPulses(steps, [{startFrac, peakFrac, endFrac}], 0, 0.45, (v) => round(v, 2));
+      
+      halos.push(
+        `<circle cx="${round(cell.cx)}" cy="${round(cell.cy)}" r="0" fill="none" stroke="${evColor}" stroke-width="1">` +
+          `<animate attributeName="r" values="${rAnim.values}" keyTimes="${rAnim.keyTimes}" dur="${totalDur}s" repeatCount="indefinite"/>` +
+          `<animate attributeName="opacity" values="${opAnim.values}" keyTimes="${opAnim.keyTimes}" dur="${totalDur}s" repeatCount="indefinite"/>` +
+          `</circle>`
+      );
+    });
   });
 
   return rects.join("") + halos.join("");
@@ -126,35 +155,68 @@ function rotateArray(arr, by) {
   return arr.slice(k).concat(arr.slice(0, k));
 }
 
-function renderFireflies(layout, sim, theme, totalDur, opts) {
-  const { steps } = sim;
+function renderFireworks(layout, sim, theme, totalDur) {
+  const { steps, fireworks } = sim;
   const keyTimes = Array.from({ length: steps }, (_, i) => round(i / (steps - 1), 4)).join(";");
-  const tailLagSteps = Math.max(2, Math.round(steps * 0.03));
 
   let out = "";
-  for (let p = 0; p < sim.particleCount; p++) {
-    const pos = sim.positions[p];
-    const xs = pos.map((v) => round(v.x)).join(";");
-    const ys = pos.map((v) => round(v.y)).join(";");
-    const color = theme.fireflyCore[p % theme.fireflyCore.length];
+  for (const fw of fireworks) {
+    const colorFamily = theme.fireworkColors[fw.colorIndex % theme.fireworkColors.length];
+    const rocketColor = colorFamily[0];
 
-    if (opts.tails) {
-      const tailPos = rotateArray(pos, -tailLagSteps);
-      const txs = tailPos.map((v) => round(v.x)).join(";");
-      const tys = tailPos.map((v) => round(v.y)).join(";");
-      out +=
-        `<circle cx="${round(tailPos[0].x)}" cy="${round(tailPos[0].y)}" r="1.1" fill="${color}" opacity="0.28" filter="url(#glow)">` +
-        `<animate attributeName="cx" values="${txs}" keyTimes="${keyTimes}" dur="${totalDur}s" repeatCount="indefinite"/>` +
-        `<animate attributeName="cy" values="${tys}" keyTimes="${keyTimes}" dur="${totalDur}s" repeatCount="indefinite"/>` +
-        `</circle>`;
+    const launchXs = new Array(steps).fill(fw.launchPath[0].x);
+    const launchYs = new Array(steps).fill(fw.launchPath[0].y);
+    const launchOps = new Array(steps).fill(0);
+
+    for (let s = 0; s < steps; s++) {
+      if (s >= fw.startStep && s <= fw.explodeStep) {
+        const p = fw.launchPath[s - fw.startStep];
+        launchXs[s] = p.x;
+        launchYs[s] = p.y;
+        launchOps[s] = 1;
+      } else if (s > fw.explodeStep) {
+        const p = fw.launchPath[fw.launchPath.length - 1];
+        launchXs[s] = p.x;
+        launchYs[s] = p.y;
+        launchOps[s] = 0;
+      }
     }
 
-    out +=
-      `<circle cx="${round(pos[0].x)}" cy="${round(pos[0].y)}" r="1.6" fill="${color}" filter="url(#glow)">` +
-      `<animate attributeName="cx" values="${xs}" keyTimes="${keyTimes}" dur="${totalDur}s" repeatCount="indefinite"/>` +
-      `<animate attributeName="cy" values="${ys}" keyTimes="${keyTimes}" dur="${totalDur}s" repeatCount="indefinite"/>` +
-      `<animate attributeName="opacity" values="1;0.55;1" dur="${round(1.4 + (p % 5) * 0.3, 2)}s" repeatCount="indefinite"/>` +
+    out += `<circle r="1.5" fill="${rocketColor}" filter="url(#glow)">` +
+      `<animate attributeName="cx" values="${launchXs.map(v => round(v)).join(";")}" keyTimes="${keyTimes}" dur="${totalDur}s" repeatCount="indefinite"/>` +
+      `<animate attributeName="cy" values="${launchYs.map(v => round(v)).join(";")}" keyTimes="${keyTimes}" dur="${totalDur}s" repeatCount="indefinite"/>` +
+      `<animate attributeName="opacity" values="${launchOps.join(";")}" keyTimes="${keyTimes}" dur="${totalDur}s" repeatCount="indefinite"/>` +
       `</circle>`;
+
+    for (let i = 0; i < fw.sparks.length; i++) {
+      const sparkPath = fw.sparks[i];
+      const sparkColor = colorFamily[i % colorFamily.length];
+
+      const sparkXs = new Array(steps).fill(sparkPath[0].x);
+      const sparkYs = new Array(steps).fill(sparkPath[0].y);
+      const sparkOps = new Array(steps).fill(0);
+
+      for (let s = 0; s < steps; s++) {
+        if (s >= fw.explodeStep && s <= fw.endStep) {
+          const p = sparkPath[s - fw.explodeStep];
+          sparkXs[s] = p.x;
+          sparkYs[s] = p.y;
+          const t = (s - fw.explodeStep) / (fw.endStep - fw.explodeStep);
+          sparkOps[s] = 1 - t;
+        } else if (s > fw.endStep) {
+          const p = sparkPath[sparkPath.length - 1];
+          sparkXs[s] = p.x;
+          sparkYs[s] = p.y;
+          sparkOps[s] = 0;
+        }
+      }
+
+      out += `<circle r="1.5" fill="${sparkColor}">` +
+        `<animate attributeName="cx" values="${sparkXs.map(v => round(v)).join(";")}" keyTimes="${keyTimes}" dur="${totalDur}s" repeatCount="indefinite"/>` +
+        `<animate attributeName="cy" values="${sparkYs.map(v => round(v)).join(";")}" keyTimes="${keyTimes}" dur="${totalDur}s" repeatCount="indefinite"/>` +
+        `<animate attributeName="opacity" values="${sparkOps.map(v => round(v, 2)).join(";")}" keyTimes="${keyTimes}" dur="${totalDur}s" repeatCount="indefinite"/>` +
+        `</circle>`;
+    }
   }
   return out;
 }
@@ -183,11 +245,12 @@ export function renderSvg({ layout, sim, theme, username, totalContributions, co
   const background = `<rect x="0" y="0" width="${width}" height="${height}" fill="url(#sky)"/>`;
   const stars = renderStars(width, height, layout, theme, rand);
   const grid = renderGrid(layout, theme, sim, totalDur, sim.steps);
-  const fireflies = renderFireflies(layout, sim, theme, totalDur, { tails: config.tails });
+  const fireworks = renderFireworks(layout, sim, theme, totalDur);
 
   const caption = config.caption !== false
-    ? `<text x="${layout.width - 8}" y="${layout.height - 10}" text-anchor="end" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="9" fill="${theme.caption}">@${username} \u00b7 ${totalContributions} contributions \u00b7 fireflies</text>`
+    ? `<text x="${layout.width - 8}" y="${layout.height - 10}" text-anchor="end" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="9" fill="${theme.caption}">@${username} \u00b7 ${totalContributions} contributions \u00b7 fireworks</text>`
     : "";
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}">${defs}${background}${stars}${grid}${fireflies}${caption}</svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}">${defs}${background}${stars}${grid}${fireworks}${caption}</svg>`;
 }
+

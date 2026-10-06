@@ -1,7 +1,7 @@
 {
-  "name": "firefly-contributions",
+  "name": "fireworks-contributions",
   "version": "1.0.0",
-  "description": "Turns your GitHub contribution graph into a night scene where a flocking swarm of fireflies drifts over the grid and lights up the days you committed.",
+  "description": "Turns your GitHub contribution graph into a night scene where colourful fireworks light up the days you committed.",
   "type": "module",
   "engines": {
     "node": ">=18"
