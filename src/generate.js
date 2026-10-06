@@ -7,7 +7,7 @@ import { renderSvg } from "./renderSvg.js";
 import { themes } from "./theme.js";
 
 function parseArgs(argv) {
-  const args = { out: "dist", particles: 26, steps: 200, stepDuration: 0.16, tails: true, caption: true };
+  const args = { out: "dist", particles: 52, steps: 200, stepDuration: 0.16, tails: true, caption: true };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (!a.startsWith("--")) continue;
@@ -28,7 +28,7 @@ async function main() {
 
   const token = args.token || process.env.GH_TOKEN || process.env.GITHUB_TOKEN || "";
   const outDir = args.out;
-  const fireworkCount = Number(args.particles) || 26;
+  const fireworkCount = Number(args.particles) || 52;
   const steps = Number(args.steps);
   const stepDuration = Number(args.stepDuration);
   const tails = args.tails !== "false";

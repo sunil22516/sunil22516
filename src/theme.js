@@ -4,8 +4,8 @@ export const themes = {
     skyTop: "#1b1030",
     skyBottom: "#0d1b2a",
     star: "#cfd6ff",
-    cellEmpty: "#2d333b",
-    cellLevels: ["#2d333b", "#444c56", "#5c6670", "#768390", "#adbac7"],
+    cellEmpty: "#2a2d3a",
+    cellLevels: ["#2a2d3a", "#3d3450", "#3a4454", "#3d4a42", "#4a3d42"],
     cellLit: "#ffffff",
     fireworkColors: [
       ["#ff3366", "#ff668c", "#ff99b3", "#e60039"], 
@@ -22,8 +22,8 @@ export const themes = {
     skyTop: "#f3e6ef",
     skyBottom: "#ffe3cf",
     star: "#ffffff",
-    cellEmpty: "#ebedf0",
-    cellLevels: ["#ebedf0", "#c6c6c6", "#a1a1a1", "#7c7c7c", "#575757"],
+    cellEmpty: "#edeef2",
+    cellLevels: ["#edeef2", "#e0d4e8", "#d4e2eb", "#d6ead6", "#eadad6"],
     cellLit: "#ffffff",
     fireworkColors: [
       ["#ff3366", "#ff668c", "#ff99b3", "#e60039"], 

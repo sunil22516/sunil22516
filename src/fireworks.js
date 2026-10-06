@@ -20,7 +20,7 @@ export function seedFromString(str) {
 
 export function runSimulation(layout, opts = {}) {
   const {
-    fireworkCount = 26, // number of fireworks
+    fireworkCount = 52, // number of fireworks
     steps = 200,
     seed = 1,
   } = opts;
