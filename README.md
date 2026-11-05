@@ -6,7 +6,7 @@
 </picture>
 
 I'm Sunil, a CSE-AI undergraduate at IIIT Delhi.
-I’d say I’m consistent and i do enjoy my work, I stick with it nd try out ways to improve it continuously.I’m currently focused on growing my skills and becoming someone whom i can be proud of.
+I’d say I’m consistent and i do enjoy my work, I stick with it nd try out ways to improve.I’m currently focused on growing my skills and becoming someone whom i can be proud of.
 
 ---
 
@@ -31,7 +31,7 @@ I’d say I’m consistent and i do enjoy my work, I stick with it nd try out wa
 
 ---
 
-### -> How to reach me
+### -> Reach me out
 - Portfolio : https://portfolio-siuunil.vercel.app/
 - Email: siuunil2008@gmail.com  
 - GitHub: https://github.com/sunil22516
